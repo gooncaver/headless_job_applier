@@ -1,0 +1,93 @@
+# Headless Job Applier - Complete Requirements
+# Optimized for Python 3.13+ with pre-built wheels only
+# No source compilation required
+
+# ============================================================================
+# PHASE 1: Database Foundation & Core Utilities
+# ============================================================================
+
+# Database & ORM
+sqlalchemy==2.0.33
+alembic==1.13.1
+
+# Data Validation & Settings
+pydantic==2.9.2
+pydantic-settings==2.5.2
+
+# CLI Interface
+click==8.1.7
+
+# Logging
+loguru==0.7.2
+
+# Security & Encryption
+cryptography==42.0.7
+
+# Configuration Management (YAML)
+ruamel.yaml==0.18.6
+
+# Environment Variables
+python-dotenv==1.0.1
+
+# Testing Framework
+pytest==8.0.0
+pytest-cov==4.1.0
+
+# Utilities
+tenacity==8.2.3
+requests==2.31.0
+typing-extensions==4.10.0
+
+# ============================================================================
+# PHASE 2: LLM Integration & Resume Customization
+# ============================================================================
+
+# LLM APIs (OpenAI Primary)
+openai==1.10.0
+
+# LLM Routing (Optional - for multi-provider support)
+# litellm==1.28.10
+
+# ============================================================================
+# PHASE 3: Browser Automation & Scraping
+# ============================================================================
+
+# Browser Automation
+playwright==1.45.1
+
+# Web Scraping
+beautifulsoup4==4.12.3
+httpx==0.25.2
+
+# HTML Parsing
+lxml==5.0.0
+
+# PDF Generation
+weasyprint==61.0
+pypdf==4.1.1
+
+# Markdown Support
+markdown==3.5.2
+markdown2==2.4.10
+
+# ============================================================================
+# Optional: Scheduling & Background Tasks
+# ============================================================================
+
+# Task Scheduling
+apscheduler==3.10.4
+python-dateutil==2.8.2
+
+# ============================================================================
+# Development Tools (Optional - install with -e flag)
+# ============================================================================
+
+# Code Quality
+black==24.1.1
+flake8==7.0.0
+mypy==1.7.1
+isort==5.13.2
+
+# Type Checking Extensions
+types-requests==2.31.0.10
+

@@ -1,0 +1,101 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Testing
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.hypothesis/
+
+# Credentials & Secrets
+.env
+.env.local
+config/encrypted_creds.json
+*.key
+*.pem
+
+# Database
+database/jobs.db
+database/jobs.db-journal
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# Output
+output/resumes/*.pdf
+output/covers/*.pdf
+
+# Temporary files
+*.tmp
+*.bak
+.temp/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# IDE temp files
+.vscode-server/
+
+# Playwright debug
+.pwdebug/
+test-results/
+
+# Application state/cache
+.cache/
+*.pickle
+
+#Resume templates
+.input/
+*.md
+*.yaml
+
+#Samples
+samples/
+*.ipynb
