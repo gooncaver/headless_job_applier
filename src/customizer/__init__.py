@@ -1,3 +1,12 @@
 """Customizer module - Resume customization and PDF generation"""
 
-__all__ = []
+from .template_manager import TemplateManager, ResumeTemplate, template_manager
+from .resume_customizer import ResumeCustomizer, customizer
+
+__all__ = [
+    "TemplateManager",
+    "ResumeTemplate",
+    "template_manager",
+    "ResumeCustomizer",
+    "customizer",
+]

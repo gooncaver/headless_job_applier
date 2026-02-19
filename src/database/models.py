@@ -63,6 +63,7 @@ class Application(Base):
         default="queued"
         # Possible values: queued, customizing, ready, applying, completed, failed, paused
     )
+    resume_template = Column(String(255), nullable=True, default="resume.md")  # Track which template was used
     tailored_resume_path = Column(String(512), nullable=True)
     cover_letter_path = Column(String(512), nullable=True)
     application_url = Column(String(2048), nullable=True)

@@ -1,0 +1,170 @@
+# Headless Job Applier Configuration
+# This file contains application settings and portal credentials
+
+# ============================================================================
+# JOB SEARCH PARAMETERS
+# ============================================================================
+search:
+  # Keywords to search for
+  keywords:
+    - "data engineer"
+    - "consultant"
+    - "data scientist"
+    - "forward deployed engineer"
+    - "solution architect"
+    - "machine learning engineer"
+  
+  # Keywords that MUST be present in job description
+  required_keywords:
+    - "Palantir Foundry"
+  
+  # Job locations to search (can be cities or "remote")
+  locations:
+    - "remote"
+    - "Bay Area"
+    - "San Francisco"
+    - "New York"
+    - "Singapore"
+  
+  # Job level filter
+  job_level: "mid-level"  # junior, mid-level, senior, any
+
+# ============================================================================
+# JOB PORTAL CREDENTIALS
+# ============================================================================
+# NOTE: Passwords are stored encrypted in config/encrypted_creds.json
+# References here use environment variables or credential store
+portals:
+  linkedin:
+    enabled: true
+    email: ${LINKEDIN_EMAIL}
+    password: ${LINKEDIN_PASSWORD}  # Encrypted
+  
+  indeed:
+    enabled: true
+    email: ${INDEED_EMAIL}
+    password: ${INDEED_PASSWORD}  # Encrypted
+  
+  jobstreet:
+    enabled: true
+    email: ${JOBSTREET_EMAIL}
+    password: ${JOBSTREET_PASSWORD}  # Encrypted
+
+# ============================================================================
+# LLM CONFIGURATION
+# ============================================================================
+llm:
+  # Use OpenAI GPT-4o for resume customization and form filling
+  provider: "openai"  # Using OpenAI (GPT-4o, GPT-4-turbo, GPT-3.5-turbo)
+  model: "gpt-4o"  # Specific model version (gpt-4o recommended)
+  api_key: ${OPENAI_API_KEY}
+  
+  # Temperature: 0.0 (deterministic) to 1.0 (creative)
+  # Use lower values (0.1-0.3) for consistent form filling
+  temperature: 0.2
+  
+  # Maximum tokens per request
+  max_tokens: 4096
+
+# ============================================================================
+# EMAIL NOTIFICATIONS
+# ============================================================================
+notifications:
+  email:
+    # Provider: mailgun, sendgrid, smtp
+    provider: "mailgun"
+    api_key: ${MAILGUN_API_KEY}
+    domain: ${MAILGUN_DOMAIN}
+    sender: "noreply@yourdomain.com"
+    recipient: ${NOTIFICATION_EMAIL}
+  
+  # Which events trigger notifications
+  enabled_events:
+    - "login_required"
+    - "application_complete"
+    - "application_failed"
+    - "captcha_detected"
+    - "account_creation_needed"
+
+# ============================================================================
+# AUTOMATION SETTINGS
+# ============================================================================
+automation:
+  # Run browsers in headless mode (no GUI)
+  headless: true
+  
+  # Slow down actions (ms) - helps avoid bot detection
+  # 0 = no delay, 100 = 100ms between actions
+  slow_motion_ms: 100
+  
+  # Timeout for waiting for page elements (seconds)
+  timeout_seconds: 30
+  
+  # Take screenshots when errors occur
+  screenshot_on_error: true
+  
+  # Number of retries for failed steps
+  max_retries: 3
+  
+  # Delay between retries (seconds)
+  retry_delay_seconds: 5
+
+# ============================================================================
+# RESUME CUSTOMIZATION
+# ============================================================================
+customization:
+  # Auto-generate cover letters for each application
+  generate_cover_letters: false  # Can be overridden per job
+  
+  # Tone for cover letters
+  cover_letter_tone: "professional"  # Options: professional, casual, creative
+  
+  # PDF styling
+  pdf_style: "simple"  # Options: simple, professional, minimal
+
+# ============================================================================
+# SCHEDULING
+# ============================================================================
+scheduling:
+  # Time to run daily scraping (24-hour format)
+  scrape_time: "06:00"
+  
+  # Frequency of scraping
+  scrape_frequency: "daily"  # Options: daily, weekly, manual
+
+# ============================================================================
+# DATABASE
+# ============================================================================
+database:
+  # SQLite by default, can be PostgreSQL
+  url: "sqlite:///database/jobs.db"
+  
+  # Enable SQL query logging in debug mode
+  echo: false
+
+# ============================================================================
+# LOGGING
+# ============================================================================
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Enable debug mode for more verbose output
+  debug: false
+  
+  # Log file rotation
+  rotation: "100 MB"
+  retention: "7 days"
+
+# ============================================================================
+# APPLICATION DEFAULTS
+# ============================================================================
+application:
+  # Default application status
+  default_status: "queued"
+  
+  # Re-scrape jobs older than this many days
+  rescrape_threshold_days: 7
+  
+  # Archive jobs older than this many days
+  archive_threshold_days: 90

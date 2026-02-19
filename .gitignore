@@ -91,11 +91,8 @@ test-results/
 .cache/
 *.pickle
 
-#Resume templates
-.input/
-*.md
-*.yaml
+# Resume templates and configs - ignore entire input directory
+input/
 
 #Samples
-samples/
-*.ipynb
+sample/
